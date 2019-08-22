@@ -1,6 +1,5 @@
 package productmanager.productmanager.product;
 
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +16,11 @@ public class AppController {
         model.addAttribute("listProducts", service.listAll());
         return "index";
     }
-    @RequestMapping("/new")
+    @RequestMapping("/new_product")
     public String showNewProductForm(Model model){
-        model.addAttribute("listProducts", service.listAll());
-        return "new";
+        Product product = new Product();
+        model.addAttribute("product", product);
+        return "new_product";
     }
 
 }

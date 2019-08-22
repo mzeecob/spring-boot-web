@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Product</title>
+</head>
+<body>
+
+<h2>Product Manager</h2>
+
+<h3><a href="new">create New Product</a></h3>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Brand</th>
+        <th>Made In</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="product: ${listProducts}">
+        <td  th:text="${product.id}"></td>
+        <td  th:text="${product.name}"></td>
+        <td  th:text="${product.brand}"></td>
+        <td  th:text="${product.madein}"></td>
+        <td  th:text="${product.price}"></td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>

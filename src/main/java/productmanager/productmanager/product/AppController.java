@@ -17,6 +17,11 @@ public class AppController {
         model.addAttribute("listProducts", service.listAll());
         return "index";
     }
+    @RequestMapping("/new")
+    public String showNewProductForm(Model model){
+        model.addAttribute("listProducts", service.listAll());
+        return "new";
+    }
 
 }
 

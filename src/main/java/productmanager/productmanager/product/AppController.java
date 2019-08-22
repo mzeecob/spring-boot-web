@@ -3,7 +3,9 @@ package productmanager.productmanager.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class AppController {
@@ -16,11 +18,17 @@ public class AppController {
         model.addAttribute("listProducts", service.listAll());
         return "index";
     }
+
+//    adding new product
     @RequestMapping("/new_product")
-    public String showNewProductForm(Model model){
-        Product product = new Product();
-        model.addAttribute("product", product);
+    public String showNewProductForm(@ModelAttribute(value = "product") Product product){
         return "new_product";
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveProduct(@ModelAttribute(value = "product") Product product){
+        service.save(product);
+        return "redirect:/";
     }
 
 }

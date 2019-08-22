@@ -6,28 +6,37 @@
 </head>
 <body>
 
-<h2>Product Manager</h2>
+<h2>Create New product</h2>
 
-<h3><a href="new">create New Product</a></h3>
+<h3>create New Product</h3>
 
-<table border="1" cellpadding="10">
-    <tr>
-        <th>Product Id</th>
-        <th>Product Name</th>
-        <th>Product Brand</th>
-        <th>Made In</th>
-        <th>Price</th>
-        <th>Actions</th>
-    </tr>
-    <tr th:each="product: ${listProducts}">
-        <td  th:text="${product.id}"></td>
-        <td  th:text="${product.name}"></td>
-        <td  th:text="${product.brand}"></td>
-        <td  th:text="${product.madein}"></td>
-        <td  th:text="${product.price}"></td>
-    </tr>
+<form action="#" th:action="@{/save}" method="post">
+    <table border="0" data-th-accept="10">
+        <tr>
+            <td> Product Name:</td>
+            <td><input type="text" th:value="${product.name}"></td>
+        </tr>
+        <tr>
+            <td> Brand:</td>
+            <td><input type="text"  th:value="${product.brand}"></td>
+        </tr>
+        <tr>
+            <td> Made In:</td>
+            <td><input type="text"  th:value="${product.madein}"></td>
+        </tr>
+        <tr>
+            <td> price:</td>
+            <td><input type="text"  th:value="${product.price}"></td>
+        </tr>
 
-</table>
+        <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+        </tr>
+
+    </table>
+
+
+</form>
 
 
 </body>

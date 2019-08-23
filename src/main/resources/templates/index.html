@@ -20,11 +20,17 @@
         <th>Actions</th>
     </tr>
     <tr th:each="product: ${listProducts}">
-        <td  th:text="${product.id}"></td>
-        <td  th:text="${product.name}"></td>
-        <td  th:text="${product.brand}"></td>
-        <td  th:text="${product.madein}"></td>
-        <td  th:text="${product.price}"></td>
+        <td  th:text="${product.id}"> Product Id</td>
+        <td  th:text="${product.name}">Product Name</td>
+        <td  th:text="${product.brand}">Product Brand</td>
+        <td  th:text="${product.madein}">Made In</td>
+        <td  th:text="${product.price}">Price</td>
+        <td>
+            <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+        </td>
+        <td>
+            <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+        </td>
     </tr>
 
 </table>

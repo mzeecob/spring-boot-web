@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Product {
     @ Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
     private String brand;
@@ -64,5 +64,17 @@ public class Product {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", madein='" + madein + '\'' +
+                ", price='" + price + '\'' +
+                '}';
     }
 }
